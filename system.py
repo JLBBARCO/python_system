@@ -9,6 +9,7 @@ while True:
         'Sair',
         'Conversor',
         'Downloads',
+        'IA (Inteligência Artificial)',
         )
     lib.interface.menu(opções, título=False)
 
@@ -31,6 +32,9 @@ while True:
         elif escolha == 2:
             import lib.downloads
             lib.downloads.yt_download()
+
+        elif escolha == 3:
+            import lib.ia
 
         else:
             print('\033[31mOpção inválida. Tente novamente.\033[m')

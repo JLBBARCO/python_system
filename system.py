@@ -7,6 +7,7 @@ while True:
     print('Escolha uma das opções abaixo:')
     opções = (
         'Sair',
+        'Conversor'
         )
     lib.interface.menu(opções, título=False)
 
@@ -14,12 +15,24 @@ while True:
     while escolha < 0 or escolha > len(opções):
         escolha = int(input('Escolha: '))
 
-    if escolha == 0:
-        lib.interface.cabeçalho('Saindo do sistema... Até logo!')
-        sleep(.5)
-        break
+    try:
+        if escolha == 0:
+            lib.interface.cabeçalho('Saindo do sistema... Até logo!')
+            sleep(.5)
+            break
 
-    else:
-        print('\033[31mOpção inválida. Tente novamente.\033[m')
-        # Aqui você pode adicionar o código para lidar com a opção inválida
-    sleep(2)
+        elif escolha == 1:
+            sleep(.25)
+            import lib.conversor_unidades
+            sleep(.25)
+            lib.conversor_unidades.conversor()
+
+        else:
+            print('\033[31mOpção inválida. Tente novamente.\033[m')
+            # Aqui você pode adicionar o código para lidar com a opção inválida
+        sleep(2)
+
+    except Exception as e:
+        print(f'\033[31mErro: {e}\033[m')
+        sleep(2)
+        continue

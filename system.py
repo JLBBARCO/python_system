@@ -3,21 +3,29 @@ from time import sleep
 import lib.interface
 
 lib.interface.cabeçalho('Sistema Python')
+opções = (
+    'Sair',
+    'Conversor',
+    'Downloads',
+    'IA (Inteligência Artificial)',
+    'Jogos',
+    'Sorteador'
+)
+
 while True:
     print('Escolha uma das opções abaixo:')
-    opções = (
-        'Sair',
-        'Conversor',
-        'Downloads',
-        'IA (Inteligência Artificial)',
-        'Jogos',
-        'Sorteador'
-        )
     lib.interface.menu(opções, título=False)
 
-    escolha = int(input('Escolha: '))
-    while escolha < 0 or escolha > len(opções):
+    try:
         escolha = int(input('Escolha: '))
+        if escolha < 0 or escolha >= len(opções):
+            print('\033[31mOpção inválida. Tente novamente.\033[m')
+            sleep(1)
+            continue
+    except ValueError:
+        print('\033[31mDigite um número inteiro válido.\033[m')
+        sleep(1)
+        continue
 
     try:
         if escolha == 0:
@@ -50,9 +58,6 @@ while True:
             sleep(.25)
             lib.sorteio.sorteio()
 
-        else:
-            print('\033[31mOpção inválida. Tente novamente.\033[m')
-            # Aqui você pode adicionar o código para lidar com a opção inválida
         sleep(2)
 
     except Exception as e:

@@ -11,6 +11,7 @@ while True:
         'Downloads',
         'IA (Inteligência Artificial)',
         'Jogos',
+        'Sorteador'
         )
     lib.interface.menu(opções, título=False)
 
@@ -42,6 +43,12 @@ while True:
             import lib.jogos
             sleep(.25)
             lib.jogos.jogos()
+
+        elif escolha == 5:
+            sleep(.25)
+            import lib.sorteio
+            sleep(.25)
+            lib.sorteio.sorteio()
 
         else:
             print('\033[31mOpção inválida. Tente novamente.\033[m')

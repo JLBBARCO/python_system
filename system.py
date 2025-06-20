@@ -7,7 +7,11 @@ while True:
     print('Escolha uma das opções abaixo:')
     opções = (
         'Sair',
-        'Conversor'
+        'Conversor',
+        'Downloads',
+        'IA (Inteligência Artificial)',
+        'Jogos',
+        'Sorteador'
         )
     lib.interface.menu(opções, título=False)
 
@@ -26,6 +30,25 @@ while True:
             import lib.conversor_unidades
             sleep(.25)
             lib.conversor_unidades.conversor()
+
+        elif escolha == 2:
+            import lib.downloads
+            lib.downloads.yt_download()
+
+        elif escolha == 3:
+            import lib.ia
+
+        elif escolha == 4:
+            sleep(.25)
+            import lib.jogos
+            sleep(.25)
+            lib.jogos.jogos()
+
+        elif escolha == 5:
+            sleep(.25)
+            import lib.sorteio
+            sleep(.25)
+            lib.sorteio.sorteio()
 
         else:
             print('\033[31mOpção inválida. Tente novamente.\033[m')

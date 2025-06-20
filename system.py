@@ -10,6 +10,7 @@ while True:
         'Conversor',
         'Downloads',
         'IA (Inteligência Artificial)',
+        'Jogos',
         )
     lib.interface.menu(opções, título=False)
 
@@ -35,6 +36,12 @@ while True:
 
         elif escolha == 3:
             import lib.ia
+
+        elif escolha == 4:
+            sleep(.25)
+            import lib.jogos
+            sleep(.25)
+            lib.jogos.jogos()
 
         else:
             print('\033[31mOpção inválida. Tente novamente.\033[m')

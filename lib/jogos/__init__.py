@@ -1,12 +1,12 @@
 # Importações
-from .. import interface
+from .. import ui
 
 def jogos():
     opções = (
         'Voltar',
         'Jogo da Advinha'
     )
-    interface.menu(opções, 'JOGOS')
+    ui.menu(opções, 'JOGOS')
     while True:
         resposta = int(input('Escolha: '))
         if resposta == 0:
@@ -41,7 +41,7 @@ def jogo_da_adivinha():
             tentativas += 1
             pontuação -= 1
 
-            interface.linha()
+            ui.linha()
             user = int(input(f'Digite um número de 1 a {máximo_número}: '))
 
             if tentativas == tentativa_máxima:
@@ -83,7 +83,7 @@ def jogo_da_adivinha():
 
         if continuar == 'N':
             rank.sort(reverse=True)
-            interface.cabeçalho('RANKING')
+            ui.cabeçalho('RANKING')
             print(f'  {'NOME':<28}|{'PONTUAÇÃO':>27}')
             print('-'*29, '|', '-'*28)
             for p, u in rank:

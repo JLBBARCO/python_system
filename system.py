@@ -1,20 +1,19 @@
 # Importações
 from time import sleep
-import lib.interface
+import lib.ui
 
-lib.interface.cabeçalho('Sistema Python')
+lib.ui.cabeçalho('Sistema Python')
 opções = (
     'Sair',
     'Conversor',
-    'Downloads',
-    'IA (Inteligência Artificial)',
     'Jogos',
-    'Sorteador'
+    'Sorteador',
+    'Gerador de Senhas'
 )
 
 while True:
     print('Escolha uma das opções abaixo:')
-    lib.interface.menu(opções, título=False)
+    lib.ui.menu(opções, título=False)
 
     try:
         escolha = int(input('Escolha: '))
@@ -29,7 +28,7 @@ while True:
 
     try:
         if escolha == 0:
-            lib.interface.cabeçalho('Saindo do sistema... Até logo!')
+            lib.ui.cabeçalho('Saindo do sistema... Até logo!')
             sleep(.5)
             break
 
@@ -40,23 +39,22 @@ while True:
             lib.conversor_unidades.conversor()
 
         elif escolha == 2:
-            import lib.downloads
-            lib.downloads.yt_download()
-
-        elif escolha == 3:
-            import lib.ia
-
-        elif escolha == 4:
             sleep(.25)
             import lib.jogos
             sleep(.25)
             lib.jogos.jogos()
 
-        elif escolha == 5:
+        elif escolha == 3:
             sleep(.25)
-            import lib.sorteio
+            import lib.sorteador
             sleep(.25)
-            lib.sorteio.sorteio()
+            lib.sorteador.sorteio()
+
+        elif escolha == 4:
+            sleep(.25)
+            import lib.passwords_generator
+            sleep(.25)
+            lib.passwords_generator.sorteio()
 
         sleep(2)
 

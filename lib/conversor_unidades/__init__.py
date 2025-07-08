@@ -1,12 +1,12 @@
 # Importações
-from .. import interface
+from .. import ui
 
 # Função principal
 def conversor():
     while True:
-        interface.linha()
-        interface.cabeçalho('Conversor de Temperaturas')
-        interface.linha()
+        ui.linha()
+        ui.cabeçalho('Conversor de Temperaturas')
+        ui.linha()
         print(
             'Escolha duas das opções abaixo:\n'
             'Sair\n'

@@ -16,20 +16,18 @@ This system converts units of measurements, downloads, has a chatbot, has severa
 
    3. Kelvin
 
-2. Downloads
-
-3. ChatBot (in dev)
-
-4. Games
+2. Games
 
    1. Random Number Game
 
-5. Random
+3. Random
 
    1. Random Numbers
 
-   2. Random Alphanumerics Passwords
+   2. Random Names
 
-   3. Random Passwords with Alphanumerics and Special Characters
+4. Passwords Generator
 
-   4. Random Names
+   1. Alphanumerics Passwords
+
+   2. Passwords with Alphanumerics and Special Characters

@@ -1,7 +1,7 @@
 # Importações
 import random
 from time import sleep
-from .. import interface
+from .. import ui
 
 # Função Principal
 def sorteio():
@@ -13,26 +13,18 @@ def sorteio():
             opções = [
                 'Voltar',
                 'Sorteio de Números',
-                'Gerador de Senhas Alphanuméricas',
-                'Gerador de Senhas Alphanuméricas com Caracteres Especiais',
                 'Gerador de Nomes'
             ]
-            interface.menu(opções, 'Sorteio')
+            ui.menu(opções, 'Sorteio')
             resposta = int(input('Escolha: '))
             if resposta == 0:
-                interface.cabeçalho('VOLTANDO AO MENU PRINCIPAL...')
+                ui.cabeçalho('VOLTANDO AO MENU PRINCIPAL...')
                 break
 
             elif resposta == 1:
                 sorteio_números()
 
             elif resposta == 2:
-                gerador_senha_alphanumérica()
-
-            elif resposta == 3:
-                gerador_senha_alphanumérica_caracteres()
-
-            elif resposta == 4:
                 gerador_nomes()
                 
             else:
@@ -74,50 +66,8 @@ def sorteio_números():
         else:
             return valor
     print('Os números sorteados foram:', end=' ')
-    interface.resultado(sorteio, fim=' ', linhas=False)
+    ui.resultado(sorteio, fim=' ', linhas=False)
     sleep(2)
-
-def gerador_senha_alphanumérica():
-    """
-    -> Pede ao usuário a quantidade de caracteres a serem sorteados. O programa sorteia números inteiros e adiciona a uma lista os caracteres referentes ao número sorteado em uma lista de caracteres alphanuméricos pré-definidos.
-    """
-    max_chars = int(input('Digite a quantidade de caracteres: '))
-    password = []
-    caracteres = (
-        '0', '1', '2', '3', '4', '5', '6', '7', '8', '9',
-        'A', 'a', 'B', 'b', 'C', 'c', 'D', 'd', 'E', 'e', 'F', 'f', 'G', 'g',
-        'H', 'h', 'I', 'i', 'J', 'j', 'K', 'k', 'L', 'l', 'M', 'm', 'N', 'n',
-        'O', 'o', 'P', 'p', 'Q', 'q', 'R', 'r', 'S', 's', 'T', 't', 'U', 'u',
-        'V', 'v', 'W', 'w', 'X', 'x', 'Y', 'y', 'Z', 'z'
-    )
-    for _ in range(max_chars):
-        sorteado = random.randint(0, len(caracteres) - 1)
-        password.append(caracteres[sorteado])
-    for c in password:
-        interface.resultado(valor=c)
-    print()
-
-def gerador_senha_alphanumérica_caracteres():
-    """
-    -> Pede ao usuário a quantidade de caracteres a serem sorteados. O programa sorteia números inteiros e coloca em uma lista os caracteres referentes pré-declarados em uma lista.
-    """
-    max_chars = int(input('Digite a quantidade de caracteres: '))
-    password = []
-    caracteres = (
-        '0', '1', '2', '3', '4', '5', '6', '7', '8', '9',
-        'A', 'a', 'B', 'b', 'C', 'c', 'D', 'd', 'E', 'e', 'F', 'f', 'G', 'g',
-        'H', 'h', 'I', 'i', 'J', 'j', 'K', 'k', 'L', 'l', 'M', 'm', 'N', 'n',
-        'O', 'o', 'P', 'p', 'Q', 'q', 'R', 'r', 'S', 's', 'T', 't', 'U', 'u',
-        'V', 'v', 'W', 'w', 'X', 'x', 'Y', 'y', 'Z', 'z',
-        '?', '!', '@', '#', '$', '%', '/', '+', '-', '_', '=', '*', '&', '<',
-        '>', '(', ')', '[', ']', '{', '}', 'Ç', 'ç'
-    )
-    for _ in range(max_chars):
-        sorteado = random.randint(0, len(caracteres) - 1)
-        password.append(caracteres[sorteado])
-    for c in password:
-        interface.resultado(valor=c, linhas=False)
-    print()
 
 def gerador_nomes():
     """
@@ -130,4 +80,4 @@ def gerador_nomes():
     for _ in range(quantidade):
         nome = fake.name()
         nomes.append(nome)
-    interface.resultado(nomes, fim='; ')
+    ui.resultado(nomes, fim='; ')
